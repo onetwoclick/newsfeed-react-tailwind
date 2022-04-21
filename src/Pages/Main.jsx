@@ -54,8 +54,17 @@ export default function Example() {
             <div className="border-b border-gray-200 xl:border-b-0 xl:flex-shrink-0 xl:w-64 xl:border-r xl:border-gray-200 bg-white">
               <div className="h-full pl-4 pr-6 py-6 sm:pl-6 lg:pl-8 xl:pl-0">
                 {/* Start left column area */}
-                <div className="h-full relative" style={{ minHeight: '12rem' }}>
-                  <div className="absolute inset-0 border-2 border-gray-200 border-dashed rounded-lg" />
+                <div className="mt-2 pt-2 grid gap-4 lg:grid-cols-1 lg:gap-x-2 lg:gap-y-4">
+                  {posts.map((post) => (
+                    <div key={post.title}>
+                      <p className="text-sm text-gray-500">
+                        <time dateTime={post.datetime}>{post.date}</time>
+                      </p>
+                      <a href="#" className="mt-2 block">
+                        <p className="text-xl font-semibold text-gray-900">{post.title}</p>
+                      </a>
+                    </div>
+                  ))}
                 </div>
                 {/* End left column area */}
               </div>
